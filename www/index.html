@@ -108,15 +108,16 @@
 				   navigator.globalization.getPreferredLanguage(onSuccess, onError);
 
 				   function onSuccess(language) {
-					  //alert('language: ' + language.value + '\n');
+					  alert('language: ' + language.value + '\n');
 						var lang = language.value;
 						var res = lang.split("-");
-						if(res[0] == 'en'){
+						if(res[0] == 'nl'){
 							document.getElementById('container-frame').src = 'https://www.tutorialspoint.com';
-						}else{
+						}
+						else{
 							document.getElementById('container-frame').src = 'http://ebuyclick.com';
 						}
-				   }
+					}
 
 				   function onError(){
 						 if(flag){
