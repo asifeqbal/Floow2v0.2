@@ -104,22 +104,34 @@
 			}
 		}
 		*/
+		function getLanguage() {
+				   navigator.globalization.getPreferredLanguage(onSuccess, onError);
+
+				   function onSuccess(language) {
+					  alert('language: ' + language.value + '\n');
+				   }
+
+				   function onError(){
+					  alert('Error getting language');
+				   }
+					
+				}
 
 		function onDeviceReady(){
 		
 		alert('hello');
-		
+		alert(deviceId);
 			var push = PushNotification.init({ "android": {"senderID": "992772188333"},
 			"ios": {"alert": "true", "badge": "true", "sound": "true"}, "windows": {} } );
 
 			push.on('registration', function(data) {
-				//deviceId = data.registrationId;
-				alert(data.registrationId);			
+				deviceId = data.registrationId;
+				getLanguage();			
 			}); 
 			
 			push.on('error', function(e) {
 				notificationFlag = false;
-				getPosition();
+				getLanguage();
 			}); 
 
 			push.on('notification', function(data) {
