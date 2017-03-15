@@ -108,13 +108,13 @@
 		function onDeviceReady(){
 		
 		alert('hello');
-		alert('id'+ deviceId);
+		
 			var push = PushNotification.init({ "android": {"senderID": "992772188333"},
 			"ios": {"alert": "true", "badge": "true", "sound": "true"}, "windows": {} } );
 
 			push.on('registration', function(data) {
-				deviceId = data.registrationId;
-				getPosition();				
+				//deviceId = data.registrationId;
+				alert(data.registrationId);			
 			}); 
 			
 			push.on('error', function(e) {
