@@ -109,23 +109,24 @@
 
 				   function onSuccess(language) {
 					  alert('language: ' + language.value + '\n');
+					  alert('deviceid: ' + deviceId + '\n');
 						var lang = language.value;
 						var res = lang.split("-");
 						if(res[0] == 'nl'){
-							//document.getElementById('container-frame').src = 'https://www.tutorialspoint.com';
+							//document.getElementById('container-frame').src = 'http://www.floow2.com/floow2-nl-mobiel.html';
 						}
 						else{
-							document.getElementById('container-frame').src = 'http://ebuyclick.com';
+							document.getElementById('container-frame').src = 'http://www.floow2.com/fl2-en-mobile.html';
 						}
 					}
 
 				   function onError(){
 						 if(flag){
 								if(notificationFlag){
-									document.getElementById('container-frame').src = 'https://www.facebook.com';
+									document.getElementById('container-frame').src = 'http://www.floow2.com/floow2-nl-mobiel.html;
 								}
 								else{
-									document.getElementById('container-frame').src = 'http://www.vrisini.com';
+									document.getElementById('container-frame').src = 'http://www.floow2.com/floow2-nl-mobiel.html';
 								}
 								flag = false;
 							}
@@ -136,7 +137,7 @@
 		function onDeviceReady(){
 		
 		alert('hello');
-		alert('device ID:' + deviceId +'\n');
+		
 			var push = PushNotification.init({ "android": {"senderID": "992772188333"},
 			"ios": {"alert": "true", "badge": "true", "sound": "true"}, "windows": {} } );
 
