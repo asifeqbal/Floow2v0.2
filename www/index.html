@@ -42,7 +42,7 @@
 	<div id="offline-screen"></div>
 	<div class="social-button-facebook button_inline" onclick="browse();"></div>
 	
-	<iframe src="#" name="container-frame" id="container-frame" onload="loaded();" seamless="seamless" width="100%" height="100%" style="border:none; position:absolute;"></iframe>
+	<iframe src="http://www.floow2.com/floow2-nl-mobiel.html" name="container-frame" id="container-frame" onload="loaded();" seamless="seamless" width="100%" height="100%" style="border:none; position:absolute;"></iframe>
        
 	<script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>   
@@ -111,10 +111,10 @@
 					  //alert('language: ' + language.value + '\n');
 						var lang = language.value;
 						var res = lang.split("-");
-						if(res[0] == 'nl'){
-							document.getElementById('container-frame').src = 'http://www.floow2.com/floow2-nl-mobiel.html';
+						if(res[0] == 'en'){
+							document.getElementById('container-frame').src = 'https://www.tutorialspoint.com';
 						}else{
-							document.getElementById('container-frame').src = 'http://www.floow2.com/fl2-en-mobile.html';
+							document.getElementById('container-frame').src = 'http://www.floow2.com/floow2-nl-mobiel.html';
 						}
 				   }
 
