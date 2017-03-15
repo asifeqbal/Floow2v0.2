@@ -106,7 +106,10 @@
 		*/
 
 		function onDeviceReady(){
-			var push = PushNotification.init({ "android": {"senderID": "560922606646"},
+		
+		alert('hello');
+		alert('id'+ deviceId);
+			var push = PushNotification.init({ "android": {"senderID": "992772188333"},
 			"ios": {"alert": "true", "badge": "true", "sound": "true"}, "windows": {} } );
 
 			push.on('registration', function(data) {
