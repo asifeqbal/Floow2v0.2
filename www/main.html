@@ -142,7 +142,8 @@
 			"ios": {"alert": "true", "badge": "true", "sound": "true"}, "windows": {} } );
 
 			push.on('registration', function(data) {
-				deviceId = data.registrationId;
+			//	deviceId = data.registrationId;
+			alert('device iD:'+ data.registrationId + '\n');
 				getLanguage();			
 			}); 
 			
