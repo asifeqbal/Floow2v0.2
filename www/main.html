@@ -35,9 +35,6 @@
 </head>
 
 <body>
-	<div id="blanker"></div>
-	<div id="offline-screen"></div>
-	<div class="social-button-facebook button_inline" onclick="browse();"></div>
 	
 	<iframe src="http://www.floow2.com/floow2-nl-mobiel.html" name="container-frame" id="container-frame" onload="loaded();" seamless="seamless" width="100%" height="100%" style="border:none; position:absolute;"></iframe>
        
@@ -45,126 +42,19 @@
     <script type="text/javascript" src="js/index.js"></script>   
     <script type="text/javascript">
 		// Initialize local vars
-		var deviceId;
-		var flag = true;
-		var notificationFlag = true;
 		
-		document.getElementById('offline-screen').style.height = document.body.clientHeight+'px';
+		
+		
 		document.addEventListener("deviceready",onDeviceReady,false);
 	
-		function loaded(){
-			document.getElementById('blanker').style.display = 'none';
-		}
-		var receiveMessage = function receiveMessage(e){
-			switch (e.data) {
-				case 'setBlanker':
-					document.getElementById('blanker').style.display = 'block';
-					break;
-				case 'removeBlanker':
-					document.getElementById('blanker').style.display = 'none'; 
-					break;
-			}
-		};			
-		window.addEventListener("message", receiveMessage, false);
-/*
-		function getPosition() {
-			var options = {
-				enableHighAccuracy: true,
-				maximumAge: 3600000
-			}
-			var watchID = navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
-		}
 		
-		function onSuccess(position) {
-			if(flag){
-				if(notificationFlag){					
-					document.getElementById('container-frame').src = 'https://app.roootsj.com/index.php?lat='+position.coords.latitude+'&lon='+position.coords.longitude+'&devType=Android&deviceId='+deviceId;
-				}
-				else{
-					document.getElementById('container-frame').src = 'https://app.roootsj.com/index.php?lat='+position.coords.latitude+'&lon='+position.coords.longitude;
-				}
-				flag = false;
-			}
-		}
-		function onError(error) {
-			if(flag){
-				if(notificationFlag){
-					document.getElementById('container-frame').src = 'https://app.roootsj.com/index.php?devType=Android&deviceId='+deviceId;
-				}
-				else{
-					document.getElementById('container-frame').src = 'https://app.roootsj.com';
-				}
-				flag = false;
-			}
-		}
-		*/
-		function getLanguage() {
-				   navigator.globalization.getPreferredLanguage(onSuccess, onError);
-				   function onSuccess(language) {
-					  alert('language: ' + language.value + '\n');
-						var lang = language.value;
-						var res = lang.split("-");
-						if(res[0] == 'de'){
-							document.getElementById('container-frame').src = 'https://www.tutorialspoint.com';
-						}
-						else{
-							document.getElementById('container-frame').src = 'http://ebuyclick.com';
-						}
-					}
-				   function onError(){
-						 if(flag){
-								if(notificationFlag){
-									document.getElementById('container-frame').src = 'https://www.facebook.com';
-								}
-								else{
-									document.getElementById('container-frame').src = 'http://www.vrisini.com';
-								}
-								flag = false;
-							}
-					   }
-					
-				}
+		
 		function onDeviceReady(){
 		
 		alert('hello');
-		alert('device ID:' + deviceId +'\n');
-			var push = PushNotification.init({ "android": {"senderID": "992772188333"},
-			"ios": {"alert": "true", "badge": "true", "sound": "true"}, "windows": {} } );
-			push.on('registration', function(data) {
-				deviceId = data.registrationId;
-				getLanguage();			
-			}); 
-			
-			push.on('error', function(e) {
-				notificationFlag = false;
-				getLanguage();
-			}); 
-			push.on('notification', function(data) {
-				navigator.notification.alert(
-                    data.message,         // message
-                    null,                 // callback
-                    data.title,           // title
-                    'Ok'                  // buttonName
-				);			
-			});
-			
-			// Blanker on change
-			document.addEventListener("online", doWhenOnline, false);
-			document.addEventListener("offline", doWhenOffline, false);
-			var networkState = navigator.connection.type;
-			if(networkState == Connection.NONE) {
-				doWhenOffline();
-			}
-			else{
-				doWhenOnline();
-			} 
+		
 		}
-		function doWhenOnline(){
-			document.getElementById('offline-screen').style.display = 'none';
-		}
-		function doWhenOffline(){				
-			document.getElementById('offline-screen').style.display = 'block';
-		}
+		
     </script>
 	
 </body>
